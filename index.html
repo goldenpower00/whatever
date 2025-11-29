@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="mn">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Forever Together ❤️</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;600&family=Sacramento&display=swap" rel="stylesheet">
+
+<style>
+:root{
+  --bg:#050505;
+  --heart-red:#ff3d5b;
+  --gold:#d4af37;
+  --joyful-pink:#ff9a9e;
+  --joyful-yellow:#fff3a1;
+}
+
+body{
+  margin:0;
+  background: var(--bg);
+  font-family:"Montserrat", sans-serif;
+  color:white;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  min-height:100vh;
+  overflow:hidden;
+  position:relative;
+}
+
+/* Glowing overlay + vignette + shimmer */
+body::before{
+  content:'';
+  position:absolute; top:0; left:0; width:100%; height:100%;
+  background: radial-gradient(circle, rgba(255,0,0,0.08), transparent 70%);
+  pointer-events:none; z-index:0;
+  animation:glowShift 8s infinite alternate;
+}
+body::after{
+  content:'';
+  position:absolute; top:0; left:0; width:100%; height:100%;
+  background: radial-gradient(circle, transparent 60%, rgba(0,0,0,0.6) 100%);
+  pointer-events:none; z-index:1;
+}
+@keyframes glowShift{
+  0%{transform:translate(0,0);}
+  100%{transform:translate(5px,5px);}
+}
+
+.card{
+  background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+  border-radius:20px; padding:30px;
+  box-shadow:0 12px 40px rgba(179,0,0,0.25),0 0 30px rgba(255,26,26,0.12);
+  text-align:center;
+  max-width:900px;
+  width:95%;
+  position:relative;
+  z-index:2;
+  overflow:hidden;
+}
+
+.photos{
+  display:flex;
+  justify-content:center;
+  gap:24px;
+  margin-bottom:28px;
+  position:relative;
+}
+
+.frame{
+  width:320px;
+  height:420px;
+  border-radius:15px;
+  box-shadow:0 10px 30px rgba(0,0,0,0.7), 0 0 20px rgba(255,26,26,0.2);
+  border:2px solid rgba(212,175,55,0.18);
+  overflow:hidden;
+  position:relative;
+  transform-origin:center;
+  transition:transform 0.3s ease;
+}
+.frame img{
+  width:100%; height:100%; object-fit:cover; display:block;
+}
+.frame::before{
+  content:'';
+  position:absolute; top:0; left:0; width:100%; height:100%;
+  background: radial-gradient(circle at 30% 30%, rgba(255,255,255,0.08), transparent 70%);
+  pointer-events:none;
+  animation:lightPulse 5s infinite alternate;
+}
+.frame::after{
+  content:'';
+  position:absolute; top:0; left:0; width:100%; height:100%;
+  background: radial-gradient(circle at 70% 70%, rgba(255,255,255,0.05), transparent 70%);
+  pointer-events:none;
+  animation:lightPulse 6s infinite alternate-reverse;
+}
+@keyframes lightPulse{
+  0%{transform:scale(1);}
+  100%{transform:scale(1.05);}
+}
+
+.heart{
+  position:absolute; top:10px; right:10px;
+  font-size:28px; color:var(--heart-red);
+  text-shadow:0 0 12px rgba(255,0,0,0.6);
+  animation:beat 1s infinite;
+}
+@keyframes beat{
+  0%,100%{transform:scale(1);}
+  50%{transform:scale(1.25);}
+}
+
+.label{
+  position:absolute; bottom:-16px; left:50%;
+  transform:translateX(-50%);
+  background:rgba(212,175,55,0.12);
+  color:var(--gold);
+  padding:6px 18px;
+  border-radius:999px;
+  font-weight:600;
+}
+
+.timer-wrap{
+  margin-top:30px; position:relative; z-index:3;
+}
+
+.timer{
+  font-size:clamp(20px,3.5vw,36px);
+  padding:18px 28px;
+  border-radius:12px;
+  background: rgba(179,0,0,0.12);
+  color:#ffecec;
+  font-weight:600;
+  letter-spacing:0.6px;
+  display:inline-block;
+  min-width:520px;
+  text-shadow:0 2px 10px rgba(255,26,26,0.6);
+  position:relative;
+}
+.timer strong{color:white;}
+
+.quote{
+  font-family:"Sacramento", cursive;
+  font-size:clamp(18px,2.4vw,28px);
+  margin-top:6px; color:#ffdede;
+  text-shadow:0 6px 18px rgba(179,0,0,0.06);
+}
+
+@media(max-width:880px){
+  .photos{flex-direction:row; gap:12px;}
+  .frame{width:46vw; height:60vw;}
+  .timer{min-width:auto; font-size:20px; padding:14px 18px;}
+}
+
+.particle{
+  position:absolute;
+  width:12px; height:12px;
+  clip-path: polygon(50% 0%, 61% 12%, 75% 12%, 85% 25%, 85% 38%, 75% 50%, 50% 65%, 25% 50%, 15% 38%, 15% 25%, 25% 12%, 39% 12%);
+  opacity:0.8; pointer-events:none; z-index:0;
+  animation:floatUp linear infinite;
+}
+</style>
+</head>
+<body>
+
+<div class="card">
+  <div class="photos">
+    <div class="frame">
+      <img src="download (3).jpg" alt="Friend photo">
+      <div class="heart">❤️</div>
+      <div class="label">My Love</div>
+    </div>
+    <div class="frame">
+      <img src="download (2).jpg" alt="Your photo">
+      <div class="heart">❤️</div>
+      <div class="label">Me</div>
+    </div>
+  </div>
+
+  <div class="timer-wrap">
+    <div id="timer" class="timer"></div>
+    <div class="quote">time goes on but the point is we are together ❤️</div>
+  </div>
+</div>
+
+<audio id="romanticAudio" src="Wow.oga" preload="auto" loop></audio>
+
+<script>
+const startDate=new Date("2023-12-23T20:30:00");
+const $timer=document.getElementById("timer");
+const audio=document.getElementById("romanticAudio");
+
+function createParticle(x,y,size,color,shape='heart'){
+  const p=document.createElement('div');
+  p.className='particle';
+  p.style.left=x+'px'; p.style.top=y+'px';
+  p.style.width=size+'px'; p.style.height=size+'px';
+  p.style.background=color;
+  p.style.animationDuration=(2+Math.random()*3)+'s';
+  if(shape==='star'){
+    p.style.clipPath='polygon(50% 0%,61% 35%,98% 35%,68% 57%,79% 91%,50% 70%,21% 91%,32% 57%,2% 35%,39% 35%)';
+  }
+  document.body.appendChild(p);
+  setTimeout(()=>p.remove(),7000);
+}
+
+// Timer + heart/confetti/day cascade
+function updateTimer(){
+  const now=new Date();
+  let diff=Math.floor((now-startDate)/1000);
+  const days=Math.floor(diff/86400); diff%=86400;
+  const hours=Math.floor(diff/3600); diff%=3600;
+  const minutes=Math.floor(diff/60);
+  const seconds=diff%60;
+
+  $timer.innerHTML=`
+    <span><strong>${days}</strong> days</span>,
+    <span><strong>${hours.toString().padStart(2,'0')}</strong> hours</span>,
+    <span><strong>${minutes.toString().padStart(2,'0')}</strong> min</span>,
+    <span><strong>${seconds.toString().padStart(2,'0')}</strong> sec</span>
+  `;
+
+  const rect=$timer.getBoundingClientRect();
+  const colors=['#ff3d5b','#ff6f61','#ff9a9e','#ffdede','#ffb3b3'];
+  createParticle(rect.left + Math.random()*rect.width, rect.top + Math.random()*rect.height, 10 + Math.random()*6, colors[Math.floor(Math.random()*colors.length)]);
+  if(seconds===0) for(let i=0;i<5;i++) createParticle(Math.random()*window.innerWidth,0,4+Math.random()*6,colors[Math.floor(Math.random()*colors.length)],'star');
+  if(hours===0 && minutes===0 && seconds===0) for(let i=0;i<12;i++) createParticle(Math.random()*window.innerWidth,window.innerHeight+50,6+Math.random()*8,colors[Math.floor(Math.random()*colors.length)]);
+}
+
+updateTimer();
+setInterval(updateTimer,1000);
+
+// Audio
+document.body.addEventListener('click',()=>{
+  if(audio.paused){ audio.volume=0.2; audio.play().catch(e=>console.log("User must interact",e)); }
+  for(let i=0;i<8;i++){ createParticle(Math.random()*window.innerWidth,Math.random()*window.innerHeight,8+Math.random()*6,'#ff3d5b','star'); }
+});
+
+// Parallax frames
+const card=document.querySelector('.card');
+card.addEventListener('mousemove',e=>{
+  const r=card.getBoundingClientRect();
+  const cx=r.left+r.width/2; const cy=r.top+r.height/2;
+  const dx=(e.clientX-cx)/r.width; const dy=(e.clientY-cy)/r.height;
+  document.querySelector('.frame:first-child').style.transform=`translateX(${dx*12}px) scale(${1+Math.abs(dy)*0.015}) rotate(${dx*2}deg)`;
+  document.querySelector('.frame:last-child').style.transform=`translateX(${dx*-12}px) scale(${1+Math.abs(dy)*0.015}) rotate(${dx*-2}deg)`;
+});
+card.addEventListener('mouseleave',()=>{
+  document.querySelector('.frame:first-child').style.transform='';
+  document.querySelector('.frame:last-child').style.transform='';
+});
+
+// Background floating hearts
+function createBackgroundHeart(){
+  createParticle(Math.random()*100+'vw',0,8+Math.random()*6,['#ff3d5b','#ff6f61','#ff9a9e','#ffdede'][Math.floor(Math.random()*4)]);
+}
+setInterval(createBackgroundHeart,120);
+
+// Mouse follow hearts
+document.body.addEventListener('mousemove',e=>{
+  if(Math.random()<0.05){
+    createParticle(e.clientX,e.clientY,6+Math.random()*6,['#ff3d5b','#ff9a9e','#ffdede'][Math.floor(Math.random()*3)]);
+  }
+});
+</script>
+
+</body>
+</html>
